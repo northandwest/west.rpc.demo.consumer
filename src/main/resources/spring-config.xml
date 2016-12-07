@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:north="http://static.bucuoa.com/cutesource/schema/north"
+	xsi:schemaLocation="  
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+	http://static.bucuoa.com/cutesource/schema/north http://static.bucuoa.com/cutesource/schema/north/north.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+	default-autowire="byName">
+	
+	   <!-- 启用注解 -->
+	<context:annotation-config />
+
+	<!-- 包扫描 -->
+	<context:component-scan base-package="com.bucuoa.west">     
+	    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+	
+	<context:property-placeholder location="classpath:/application.properties" /> 
+
+	<north:application id="westdemo_client" key="3dff4ad316773jhfgf"/>
+	<north:registry id="registry" type="westrpc" address="127.0.0.1" />
+	
+	<north:consumer id="echoService1" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" version="1.0" check="false" />
+	<north:consumer id="echoService2" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService3" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+
+	<north:consumer id="echoService4" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService5" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService6" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+
+	<north:consumer id="echoService7" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService8" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService9" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+
+	<north:consumer id="echoService10" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService11" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+	<north:consumer id="echoService12" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
+
+	<bean id="springContextUtil" class="com.bucuoa.west.rpc.utils.SpringContextUtil" name="springContextUtil"></bean>
+	
+
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsf="http://jsf.jd.com/schema/jsf"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://jsf.jd.com/schema/jsf http://jsf.jd.com/schema/jsf/jsf.xsd">
+
+
+    <jsf:consumer id="userInfoRpc" interface="com.jd.user.sdk.export.UserInfoExportService" alias="${user.jsf.alias}" filter="userSdkConsumerFilter" retries="0" timeout="500" check="false">
+        <jsf:parameter key="source" value="jy_evaluation" hide="true" />
+    </jsf:consumer>
+
+
+    <jsf:consumer id="meExportJsfService" interface="com.jd.sns.group.rpc.group.jsf.service.MeExportJsfService" alias="${group.jsf.alias}" url="jsf://192.168.154.149:22000" protocol="jsf" timeout="1000"
+                  check="false" retries="0" />
+    <!-- 调用私信接口-->
+    <jsf:consumer id="joyCenterService" interface="com.jd.joymessage.external.server.JoyCenterService"
+                  protocol="jsf" alias="joycenter_dev" timeout="600" retries="0" check="false" url="jsf://192.168.183.104:22000">
+    </jsf:consumer>
+</beans>
