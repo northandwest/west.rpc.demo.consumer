@@ -18,8 +18,8 @@ public class ClientStartUp {
 		System.out.println(echoService.echo("hellow,rod 3"));
 		System.out.println(echoService.echo("hellow,rod 4"));
 		
-		EchoService bean = (EchoService)SpringContextUtil.getBean("echoService");
+//		EchoService bean = (EchoService)SpringContextUtil.getBean("echoService");
 		
-		System.out.println("bean utils==>"+bean.echo("hello,hello"));
+//		System.out.println("bean utils==>"+bean.echo("hello,hello"));
 	}
 }
