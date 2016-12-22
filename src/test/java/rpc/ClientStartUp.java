@@ -1,15 +1,16 @@
 package rpc;
 
-import com.bucuoa.west.rpc.remoting.client.*;
+import com.bucuoa.west.rpc.remoting.client.Client;
 import com.bucuoa.west.rpc.service.EchoService;
-import com.bucuoa.west.rpc.utils.SpringContextUtil;
+import com.xxx.rpc.client.RpcProxy;
 
 public class ClientStartUp {
 	public static void main(String[] args) {
 		
-		Client client = new Client("127.0.0.1", 14527);
+		String host = "127.0.0.1:14527";
+//		Client client = new Client(host, 14527);
 
-		EchoService echoService = ClientRemoteCall.getProxy(EchoService.class,client);
+		EchoService echoService = new RpcProxy(host).create(EchoService.class);//.getProxy(EchoService.class,client);
 
 		System.out.println(echoService.echo("hello,hello"));
 		System.out.println(echoService.echo("hellow,rod 1"));
