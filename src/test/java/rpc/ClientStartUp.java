@@ -1,8 +1,8 @@
 package rpc;
 
-import com.bucuoa.west.rpc.remoting.client.Client;
+import com.bucuoa.west.rpc.remoting.client.netty.RpcProxy;
 import com.bucuoa.west.rpc.service.EchoService;
-import com.xxx.rpc.client.RpcProxy;
+
 
 public class ClientStartUp {
 	public static void main(String[] args) {
