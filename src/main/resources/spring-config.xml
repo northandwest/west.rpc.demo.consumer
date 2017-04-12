@@ -38,6 +38,8 @@
 	<north:consumer id="echoService11" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
 	<north:consumer id="echoService12" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" check="false" />
 
+	<north:consumer id="echoService_task" timeout="3000" retries="5" url="127.0.0.1" alias="35" interface="com.bucuoa.west.rpc.service.EchoService" version="1.0" check="false" />
+
 	<bean id="springContextUtil" class="com.bucuoa.west.rpc.utils.SpringContextUtil" name="springContextUtil"></bean>
 	
 

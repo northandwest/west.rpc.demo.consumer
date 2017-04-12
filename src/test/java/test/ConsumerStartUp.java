@@ -1,12 +1,12 @@
 package test;
 
+import java.util.Random;
 import java.util.concurrent.locks.LockSupport;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bucuoa.west.rpc.service.EchoService;
-import com.bucuoa.west.rpc.tags.Consumer;
 
 public class ConsumerStartUp {
 	public static void main(String[] args) {
@@ -16,7 +16,11 @@ public class ConsumerStartUp {
 		
 		System.out.println("consumer is started");
 
-//		LockSupport.park();
+		final EchoService taskService = (EchoService) ctx.getBean("echoService_task");
+		taskService.echo("i am sleep task");
+
+		
+		LockSupport.park();
 	}
 
 	public static void TestService(ApplicationContext ctx) {
@@ -24,6 +28,7 @@ public class ConsumerStartUp {
 		{
 			EchoService service = (EchoService) ctx.getBean("echoService"+i);
 			System.out.println(Thread.currentThread().getName()+":"+service.echo("hah my first rpc!"+i));
+
 		}
 //		EchoService service2 = (EchoService) ctx.getBean("echoService2");
 //		System.out.println(service2.echo("hah my second rpc!"));
